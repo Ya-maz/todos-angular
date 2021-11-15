@@ -1,0 +1,152 @@
+// General styles
+
+.green {
+  background: #8bf576;
+}
+.blue {
+  background: #3367f5;
+}
+.red {
+  background: #590202;
+}
+
+.red2 {
+  background: #d91818;
+}
+
+body {
+  font-family: "Rubik", sans-serif, "Times New Roman", Times, serif;
+}
+
+button {
+  color: white;
+  font-size: 12px;
+  width: 40px;
+  height: 30px;
+  margin: 2px;
+  border: none;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.br {
+  border-radius: 10px;
+}
+
+.mglr10 {
+  margin: 0 10px;
+}
+
+.checkbox-inline {
+  margin-right: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 35vw;
+  justify-self: center;
+  background-color: rgba(242, 183, 5, 0.5);
+  border-radius: 20px;
+}
+//Menu
+
+.menu {
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.menu-input {
+  display: flex;
+  background-color: rgba(242, 183, 5, 0.8);
+  justify-content: space-between;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.menu-input input {
+  border: none;
+  background-color: rgba(242, 183, 5, 0.2);
+  padding-left: 15px;
+  width: 100%;
+  height: 30px;
+  // box-shadow: 2px 2px 5px #888888;
+  border-top-left-radius: inherit;
+  &:focus {
+    outline: none;
+  }
+}
+.menu-button {
+  border-top-right-radius: inherit;
+  background-color: rgba($color: #d97904, $alpha: 0.2);
+  &:hover {
+    box-shadow: 0 0 10px #d97904, 0 0 40px #d97904, 0 0 80px #d97904;
+  }
+}
+
+// List Tasks
+
+.tasks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 50%;
+}
+
+// Tasks Completed
+
+.count-items {
+  opacity: 50%;
+  padding-right: 15px;
+}
+
+.tasks-completed {
+  display: flex;
+  padding: 10px 0;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(242, 183, 5, 0.8);
+  border-bottom: 1px solid rgba(242, 183, 5, 0.8);
+}
+
+.checkbox-inline {
+  padding: 15px;
+}
+
+.tasks-completed span {
+  opacity: 50%;
+}
+
+// Tasks Info
+
+.tasks-info {
+  display: flex;
+  justify-content: center;
+}
+
+.tasks-info button {
+  background: #222222;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 0 15px;
+  opacity: 73%;
+  width: calc(100% / 4);
+}

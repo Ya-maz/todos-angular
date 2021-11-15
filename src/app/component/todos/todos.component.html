@@ -1,0 +1,115 @@
+<!-- Title -->
+<div class="container">
+  <div>
+    <h1>TODOS</h1>
+  </div>
+</div>
+
+<!-- Menu  -->
+<div class="card">
+  <div class="row menu">
+    <div class="menu-input">
+      <input
+        type="text"
+        name="todos"
+        id=""
+        ngDefaultControl
+        [(ngModel)]="todoTitle"
+        (keyup.enter)="addTodo()"
+        placeholder="Какие планы?"
+      />
+      <button
+        class="green menu-button"
+        type="submit"
+        [(ngModel)]="todoTitle"
+        (click)="addTodo()"
+      >
+        Add
+      </button>
+    </div>
+    <div></div>
+  </div>
+
+  <!-- List Tasks -->
+  <div class="container" *ngFor="let todo of todosFiltered()" @fade>
+    <div class="tasks">
+      <div class="tasks-items">
+        <label class="checkbox-inline"
+          ><input
+            type="checkbox"
+            name="check"
+            value=""
+            [(ngModel)]="todo.completed"
+        /></label>
+        <label
+          (dblclick)="editTodo(todo)"
+          [ngClass]="{ completed: todo.completed }"
+          *ngIf="!todo.editing; else editingTodo"
+          >{{ todo.title }}</label
+        >
+      </div>
+      <div>
+        <ng-template #editingTodo>
+          <input
+            type="text"
+            name="edit"
+            [(ngModel)]="todo.title"
+            (blur)="doneEdit(todo)"
+            (keyup.enter)="doneEdit(todo)"
+            (keyup.esc)="cancelEdit(todo)"
+            autofocus
+          />
+        </ng-template>
+        <button
+          class="red2 br mglr10"
+          type="submit"
+          (click)="deleteTodo(todo.id)"
+        >
+          Del
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tasks Completed -->
+  <div class="container">
+    <div class="tasks-completed">
+      <div>
+        <label class="checkbox-inline"
+          ><input
+            type="checkbox"
+            (change)="checkAllTodos($event)"
+            name="filter"
+          />
+        </label>
+        <span>Check All</span>
+      </div>
+      <div>
+        <label class="count-items">{{ remaining() }} items left</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tasks Info -->
+  <div class="container">
+    <div class="tasks-info">
+      <button [ngClass]="{ active: filter === 'all' }" (click)="filter = 'all'">
+        All
+      </button>
+      <button
+        [ngClass]="{ active: filter === 'active' }"
+        (click)="filter = 'active'"
+      >
+        Active
+      </button>
+      <button
+        [ngClass]="{ active: filter === 'completed' }"
+        (click)="filter = 'completed'"
+      >
+        Completed
+      </button>
+
+      <button (click)="clearCompleted()">Clear Completed</button>
+    </div>
+  </div>
+</div>

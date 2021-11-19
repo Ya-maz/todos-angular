@@ -1,0 +1,64 @@
+<!-- Title -->
+<div class="container">
+  <div>
+    <h1>TODOS with NGRX</h1>
+  </div>
+</div>
+
+<!-- Menu  -->
+<div class="card">
+  <div class="row menu">
+    <div class="menu-input">
+      <input
+        type="text"
+        name="todos"
+        id=""
+        ngDefaultControl
+        [(ngModel)]="todoTitle"
+        (keyup.enter)="addTodo()"
+        placeholder="Какие планы?"
+      />
+      <button
+        class="green menu-button"
+        type="submit"
+        name="add"
+        ngDefaultControl
+        [(ngModel)]="todoTitle"
+        (click)="addTodo()"
+      >
+        Add
+      </button>
+    </div>
+    <div></div>
+  </div>
+
+  <!-- List Tasks -->
+  <div class="container" *ngFor="let todo of todos" @fade>
+    <div class="tasks">
+      <div class="tasks-items">
+        <label class="checkbox-inline"></label>
+        <label [ngClass]="{ completed: todo.completed }">{{
+          todo.title
+        }}</label>
+      </div>
+      <div>
+        <button class="red br mglr10" type="submit" (click)="deleteTodo(todo)">
+          Del
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tasks Completed -->
+  <div class="container">
+    <div class="tasks-completed">
+      <div>
+        <label class="checkbox-inline"> </label>
+        <span>Total tasks :</span>
+      </div>
+      <div>
+        <label class="count-items">{{ remaining() }} items left</label>
+      </div>
+    </div>
+  </div>
+</div>

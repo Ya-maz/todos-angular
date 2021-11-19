@@ -1,6 +1,7 @@
 import { animate, transition, trigger, style } from '@angular/animations';
 import { HtmlTagDefinition } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { TODO } from 'src/app/models/todo';
 
 @Component({
@@ -75,7 +76,6 @@ export class TodosComponent implements OnInit {
   }
 
   checkAllTodos({ target }: any): void {
-    console.log(target);
     this.todos.forEach(
       (todo) => (todo.completed = (target as HTMLInputElement).checked)
     );

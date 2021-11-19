@@ -21,6 +21,8 @@
       <button
         class="green menu-button"
         type="submit"
+        name="add"
+        ngDefaultControl
         [(ngModel)]="todoTitle"
         (click)="addTodo()"
       >
@@ -61,7 +63,7 @@
           />
         </ng-template>
         <button
-          class="red2 br mglr10"
+          class="red br mglr10"
           type="submit"
           (click)="deleteTodo(todo.id)"
         >
@@ -93,22 +95,9 @@
   <!-- Tasks Info -->
   <div class="container">
     <div class="tasks-info">
-      <button [ngClass]="{ active: filter === 'all' }" (click)="filter = 'all'">
-        All
-      </button>
-      <button
-        [ngClass]="{ active: filter === 'active' }"
-        (click)="filter = 'active'"
-      >
-        Active
-      </button>
-      <button
-        [ngClass]="{ active: filter === 'completed' }"
-        (click)="filter = 'completed'"
-      >
-        Completed
-      </button>
-
+      <button (click)="filter = 'all'">All</button>
+      <button (click)="filter = 'active'">Active</button>
+      <button (click)="filter = 'completed'">Completed</button>
       <button (click)="clearCompleted()">Clear Completed</button>
     </div>
   </div>
